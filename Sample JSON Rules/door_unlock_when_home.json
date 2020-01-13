@@ -1,0 +1,30 @@
+{
+	"name": "If my location is set to home, unlock door",
+	"actions": [{
+		"if": {
+			"equals": {
+				"left": {
+					"location": {
+						"attribute": "Mode"
+					}
+				},
+				"right": {
+					"string": "dd405dfa-39ac-47d3-8418-afa54427a9db"
+				}
+			},
+			"then": [{
+				"command": {
+					"devices": [
+						"aa7ebc51-34d9-48c3-bfc9-57e7ce6a0526"
+					],
+					"commands": [{
+						"component": "main",
+						"capability": "lock",
+						"command": "unlock",
+						"arguments": []
+					}]
+				}
+			}]
+		}
+	}]
+}

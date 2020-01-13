@@ -1,0 +1,62 @@
+{
+    "name": "When a contact sensor is triggered, a switch will be turned on, and then turned off after 5 minutes",
+    "actions": [
+        {
+            "if": {
+                "equals": {
+                    "left": {
+                        "device": {
+                            "devices": [
+                                "0e2d99f2-16c2-4cf8-ab86-b812ef9872bf"
+                            ],
+                            "component": "main",
+                            "capability": "contactSensor",
+                            "attribute": "contact"
+                        }
+                    },
+                    "right": {
+                        "string": "open"
+                    }
+                },
+                "then": [
+                    {
+                        "command": {
+                            "devices": [
+                                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+                            ],
+                            "commands": [{
+                                "component": "main",
+                                "capability": "switch",
+                                "command": "on",
+                                "arguments": []
+                            }]
+                        }
+                    },
+                    {
+                        "sleep": {
+                            "duration": {
+                                "value": {
+                                    "integer": 5
+                                },
+                                "unit": "minute"
+                            }
+                        }
+                    },
+                    {
+                        "command": {
+                            "devices": [
+                                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+                            ],
+                            "commands": [{
+                                "component": "main",
+                                "capability": "switch",
+                                "command": "off",
+                                "arguments": []
+                            }]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

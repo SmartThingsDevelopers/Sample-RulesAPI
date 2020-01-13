@@ -1,0 +1,40 @@
+{
+  "name": "If motion is detected, turn on a light",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "left": {
+            "device": {
+              "devices": [
+                "4858b604-10e3-47ea-8432-d6418157bb13"
+              ],
+              "component": "main",
+              "capability": "motionSensor",
+              "attribute": "motion"
+            }
+          },
+          "right": {
+            "string": "active"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

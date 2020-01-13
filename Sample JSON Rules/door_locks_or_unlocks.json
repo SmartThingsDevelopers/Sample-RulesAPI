@@ -1,0 +1,57 @@
+{
+  "name": "If door is unlocked, turn on switch, else turn off switch.",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "aa7ebc51-34d9-48c3-bfc9-57e7ce6a0526"
+              ],
+              "component": "main",
+              "capability": "lock",
+              "attribute": "lock"
+            }
+          },
+          "left": {
+            "string": "unlocked"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ],
+        "else": [
+          {
+            "command": {
+              "devices": [
+                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "off",
+                  "arguments": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+    "name": "When switch changes, turn on/off lights.",
+    "actions": [
+        {
+            "if": {
+                "equals": {
+                    "left": {
+                        "string": "on"
+                    },
+                    "right": {
+                        "device": {
+                            "devices": [
+                                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+                            ],
+                            "component": "main",
+                            "capability": "switch",
+                            "attribute": "switch"
+                        }
+                    }
+                },
+                "then": [
+                    {
+                        "command": {
+                            "devices": [
+                                "7cefa71b-ae82-4560-aa1c-ebf324b31021"
+                            ],
+                            "commands": [
+                                {
+                                    "component": "main",
+                                    "capability": "light",
+                                    "command": "on",
+                                    "arguments": []
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "else": [
+                    {
+                        "command": {
+                            "devices": [
+                                "7cefa71b-ae82-4560-aa1c-ebf324b31021"
+                            ],
+                            "commands": [
+                                {
+                                    "component": "main",
+                                    "capability": "light",
+                                    "command": "off",
+                                    "arguments": []
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

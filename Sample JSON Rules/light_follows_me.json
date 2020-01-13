@@ -1,0 +1,62 @@
+{
+  "name": "If motion detected, turn on light, then turn off after 1 minute if no motion",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "left": {
+            "device": {
+              "devices": [
+                "{{motion1}}"
+              ],
+              "component": "main",
+              "capability": "motionSensor",
+              "attribute": "motion"
+            }
+          },
+          "right": {
+            "string": "active"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "on"
+                }
+              ]
+            }
+          },  {
+	        "sleep": {
+	           "duration": {
+	            "value": {
+	              "integer": 60
+	            },
+	            "unit": "Second"
+	          }
+	        }
+	      }, {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "off"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

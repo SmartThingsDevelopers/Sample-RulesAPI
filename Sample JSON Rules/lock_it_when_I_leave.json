@@ -1,0 +1,40 @@
+{
+  "name": "If presence is not detected, lock door.",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "009f3e29-3c26-4489-b94b-6238aea8e22d"
+              ],
+              "component": "main",
+              "capability": "presenceSensor",
+              "attribute": "presence"
+            }
+          },
+          "left": {
+            "string": "not present"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "71907870-64c6-43b6-aaa5-7afe2b8927c6"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "lock",
+                  "command": "lock"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

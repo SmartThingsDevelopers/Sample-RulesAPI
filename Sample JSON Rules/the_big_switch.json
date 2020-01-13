@@ -1,0 +1,84 @@
+{
+  "name": "Turns on, off and dim a collection of lights based on the state of a specific switch.",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "{{switch1}}"
+              ],
+              "component": "main",
+              "capability": "switch",
+              "attribute": "switch"
+            }
+          },
+          "left": {
+            "string": "on"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "on"
+                }
+              ]
+            }
+          }, {
+            "command": {
+              "devices": [
+                "{{light2}}", "{{light3}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "off"
+                }
+              ]
+            }
+          }
+        ],
+        "else": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "off",
+                  "arguments": []
+                }
+              ]
+            }
+          }, {
+            "command": {
+              "devices": [
+                "{{light2}}", "{{light3}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "on",
+                  "arguments": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

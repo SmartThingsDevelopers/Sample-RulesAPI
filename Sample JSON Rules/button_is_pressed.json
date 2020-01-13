@@ -1,0 +1,57 @@
+{
+  "name": "If button is pushed turn on light.",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "6369e735-830e-45ec-ad88-95f2e4dfd0ad"
+              ],
+              "component": "main",
+              "capability": "button",
+              "attribute": "button"
+            }
+          },
+          "left": {
+            "string": "pushed"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ],
+        "else": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "off",
+                  "arguments": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

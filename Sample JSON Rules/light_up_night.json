@@ -1,0 +1,56 @@
+{
+  "name": "Turn light on if it's dark, otherwise turn it off",
+  "actions": [
+    {
+      "if": {
+        "less_than": {
+          "right": {
+            "device": {
+              "devices": [
+                "94c9d9a1-028c-4c3d-a10d-d4ae494e6af1"
+              ],
+              "component": "main",
+              "capability": "illuminanceMeasurement",
+              "attribute": "illuminance"
+            }
+          },
+          "left": {
+            "integer": 30
+          }
+        }, 
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ],
+        "else": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "off"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

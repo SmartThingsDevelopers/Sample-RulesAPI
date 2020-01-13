@@ -1,0 +1,30 @@
+{
+	"name": "If my location is set to away turn on camera",
+	"actions": [{
+		"if": {
+			"equals": {
+				"left": {
+					"location": {
+						"attribute": "Mode"
+					}
+				},
+				"right": {
+					"string": "{{away_uuid}}"
+				}
+			},
+			"then": [{
+				"command": {
+					"devices": [
+						"{{camera_id}}"
+					],
+					"commands": [{
+						"component": "main",
+						"capability": "switch",
+						"command": "on",
+						"arguments": []
+					}]
+				}
+			}]
+		}
+	}]
+}

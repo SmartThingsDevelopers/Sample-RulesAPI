@@ -1,0 +1,57 @@
+{
+  "name": "If presence is detected, turn on switch, else turn off.",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "{{presence1}}"
+              ],
+              "component": "main",
+              "capability": "presenceSensor",
+              "attribute": "presence"
+            }
+          },
+          "left": {
+            "string": "present"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{switch1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ],
+        "else": [
+          {
+            "command": {
+              "devices": [
+                "{{switch1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "off",
+                  "arguments": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

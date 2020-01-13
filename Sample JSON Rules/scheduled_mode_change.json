@@ -1,0 +1,24 @@
+{
+  "name": "Change mode to away at 11:55 AM",
+  "actions": [
+    {
+	    "every": {
+	        "specific": {
+                "reference": "Noon",
+                "offset": {
+                    "value": {
+                        "integer": -65
+                    },
+                    "unit": "Minute"
+                }
+	        },
+		    "actions": [
+	            {
+	                "location": {
+	                	"mode": "fdbde3da-97be-472d-8f3d-723aaa373be6"
+	                }
+	            }   
+	        ]
+		}
+	}]
+}

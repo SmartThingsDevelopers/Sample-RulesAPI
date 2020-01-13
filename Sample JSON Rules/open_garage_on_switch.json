@@ -1,0 +1,40 @@
+{
+  "name": "Open garage door when switch is turned on",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "{{switch1}}"
+              ],
+              "component": "main",
+              "capability": "switch",
+              "attribute": "switch"
+            }
+          },
+          "left": {
+            "string": "on"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{garageControl1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "open",
+                  "command": "open"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

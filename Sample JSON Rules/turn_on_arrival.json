@@ -1,0 +1,40 @@
+{
+  "name": "Turn on light when someone arrives",
+  "actions": [
+    {
+      "if": {
+        "equals": {
+          "right": {
+            "device": {
+              "devices": [
+                "{{presence1}}"
+              ],
+              "component": "main",
+              "capability": "presenceSensor",
+              "attribute": "presence"
+            }
+          },
+          "left": {
+            "string": "present"
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{light1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "light",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

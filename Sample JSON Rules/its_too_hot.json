@@ -1,0 +1,57 @@
+{
+  "name": "If temperature is >72 degrees F, turn on switch, otherwise turn switch off",
+  "actions": [
+    {
+      "if": {
+        "greater_than": {
+          "right": {
+            "device": {
+              "devices": [
+                "{{thermosensor}}"
+              ],
+              "component": "main",
+              "capability": "temperatureMeasurement",
+              "attribute": "temperature"
+            }
+          },
+          "left": {
+            "integer": 70
+          }
+        },
+        "then": [
+          {
+            "command": {
+              "devices": [
+                "{{switch1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "on"
+                }
+              ]
+            }
+          }
+        ],
+        "else": [
+          {
+            "command": {
+              "devices": [
+                "{{switch1}}"
+              ],
+              "commands": [
+                {
+                  "component": "main",
+                  "capability": "switch",
+                  "command": "off",
+                  "arguments": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
