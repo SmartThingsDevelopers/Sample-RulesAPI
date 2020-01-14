@@ -7,7 +7,7 @@ Using the Rules API the developer can create automations such as:
  * Turning off all your lights at a certain time of day
  * Changing your location mode to away when all presence detection devices are not present
 
-With this quick overview we will provide you with the basics for creating your first rules. Please take a look at [Rules Breakdown](rules-breakdown.html) to get a more in depth look at how rules operate and the possibilities unlocked with the API.
+With this quick overview we will provide you with the basics for creating your first rules. Please take a look at [Rules Breakdown](https://smartthings.developer.samsung.com/docs/rules/rules-breakdown.html) to get a more in depth look at how rules operate and the possibilities unlocked with the API.
 
 ## Interaction with the SmartThings Cloud
 
@@ -19,7 +19,7 @@ With this quick overview we will provide you with the basics for creating your f
 
 ## Example with Postman
 
-For this example, we will create an automation that will turn off a light when we change our location mode to `Night` and turn on the light if we set our location mode to `Home` or `Away`. Make sure you have a switch connected to your account or a virtual device created for this test. You will also need to obtain the Device ID for the device you will use in this rule. In this example we will use the [Rules API](../api-ref/st-api.html#tag/rules) to create the automation. 
+For this example, we will create an automation that will turn off a light when we change our location mode to `Night` and turn on the light if we set our location mode to `Home` or `Away`. Make sure you have a switch connected to your account or a virtual device created for this test. You will also need to obtain the Device ID for the device you will use in this rule. In this example we will use the [Rules API](https://smartthings.developer.samsung.com/docs/api-ref/st-api.html#tag/rules) to create the automation. 
 
 ### Install Postman
 
