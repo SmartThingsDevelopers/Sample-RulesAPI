@@ -1,0 +1,162 @@
+/**
+ *
+ * Typography
+ *
+ * Classnames are in format {regular | bold}-{mobile size in px}-{desktop size in px}
+ *
+ * ##ARTICLECONTENT
+ * ##UIELEMENTS
+ */
+
+/***
+ * ##ARTICLECONTENT
+ */
+// h1
+%regular-24-34 {
+  font-family: $samsung-300c;
+  @include calc-value(font-size, 24px, 34px);
+  @include calc-value(line-height, 36px, 42px);
+}
+// h2
+%regular-22-30 {
+  font-family: $samsung-300c;
+  @include calc-value(font-size, 22px, 30px);
+  @include calc-value(line-height, 32px, 40px);
+}
+// h3
+%regular-20-28 {
+  font-family: $samsung-300c;
+  @include calc-value(font-size, 20px, 28px);
+  @include calc-value(line-height, 30px, 38px);
+}
+// h4
+%regular-18-24 {
+  font-family: $samsung-400c;
+  @include calc-value(font-size, 18px, 24px);
+  @include calc-value(line-height, 26px, 32px);
+
+  @include q-is-small {
+    font-family: $samsung-300c;
+  }
+}
+// h5, h6
+%regular-16-22 {
+  font-family: $samsung-400c;
+  @include calc-value(font-size, 16px, 22px);
+  @include calc-value(line-height, 24px, 30px);
+}
+
+
+/***
+ * ##UIELEMENTS
+ */
+// Style 1
+%regular-28-48 {
+  font-family: $samsung-300c;
+  @include calc-value(font-size, 28px, 48px);
+  @include calc-value(line-height, 36px, 54px);
+}
+// Style 2
+%regular-24-34 {
+  font-family: $samsung-300c;
+  @include calc-value(font-size, 24px, 34px);
+  @include calc-value(line-height, 32px, 42px);
+}
+// Style 3
+%regular-18-32 {
+  font-family: $samsung-300;
+  @include calc-value(font-size, 18px, 32px);
+  @include calc-value(line-height, 24px, 40px);
+}
+// Style 4
+%regular-14-32 {
+  font-family: $samsung-300;
+  @include calc-value(font-size, 14px, 32px);
+  @include calc-value(line-height, 20px, 40px);
+
+  @include q-is-small {
+    font-family: $samsung-400;
+  }
+}
+// Style 5
+%regular-24-24 {
+  font-family: $samsung-400;
+  @include calc-value(font-size, 24px, 24px);
+  @include calc-value(line-height, 32px, 28px);
+
+  @include q-is-small {
+    font-family: $samsung-300;
+  }
+}
+// Style 6
+%regular-12-16 {
+  font-family: $samsung-400;
+  @include calc-value(font-size, 12px, 16px);
+  @include calc-value(line-height, 16px, 24px);
+
+  @include q-is-small {
+    font-family: $samsung-600;
+  }
+}
+// Style 7
+%regular-14-14 {
+  font-family: $samsung-400;
+  font-size: 14px;
+  line-height: 20px;
+}
+// Style 8
+%regular-12-14 {
+  font-family: $samsung-400;
+  @include calc-value(font-size, 12px, 14px);
+  @include calc-value(line-height, 16px, 20px);
+}
+// Body
+%bold-14-16 {
+  font-family: $samsung-600;
+  @include calc-value(font-size, 14px, 16px);
+  @include calc-value(line-height, 20px, 24px);
+}
+// Body
+%regular-14-18 {
+  font-family: $samsung-400;
+  @include calc-value(font-size, 14px, 18px);
+  @include calc-value(line-height, 20px, 28px);
+}
+
+// Bold
+%bold-14-18 {
+  @extend %regular-14-18;
+  font-family: $samsung-600;
+}
+
+// Helper classes
+.font-28-48 {
+  @extend %regular-28-48;
+}
+.font-24-34 {
+  @extend %regular-24-34;
+}
+.font-18-32 {
+  @extend %regular-18-32;
+}
+.font-14-32 {
+  @extend %regular-14-32;
+}
+.font-24-24 {
+  @extend %regular-24-24;
+}
+.font-18-24 {
+  @extend %regular-18-24;
+}
+.font-14-18 {
+  @extend %regular-14-18;
+}
+.font-12-16 {
+  @extend %regular-12-16;
+}
+.font-14-14 {
+  @extend %regular-14-14;
+}
+.font-12-14 {
+  @extend %regular-12-14;
+}

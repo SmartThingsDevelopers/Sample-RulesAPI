@@ -1,0 +1,86 @@
+*{
+  font-family:sans-serif;
+}
+#root{
+  padding:10px;
+  font-family:SamsungOne-300,sans-serif;
+  font-weight:300;
+}
+h1{
+  font-weight:500 !important;
+	margin-top:0 !important;
+	padding:0 5px 5px 5px !important;
+}
+h2, h3{
+  color:#217bd5;
+}
+.nav-tabs > li > a{
+  color:#08a2db !important;
+}
+label{
+  font-weight:500;
+  margin:5px 0 0 0 !important;
+}
+select{
+  width:700px !important;
+  max-width:100% !important;
+  font-size:14px;
+  margin:5px 0px !important;
+}
+input{
+  padding:0px 10px !important;
+}
+textarea, input{
+  width:700px !important;
+  max-width:100% !important;
+  font-size:14px;
+  margin:5px 0px !important;
+}
+textarea.form-control{
+  padding-top:5px !important;
+  min-height:300px;
+  resize:vertical;
+}
+button{
+  background:#217bd5;
+  color:white;
+  border:0;
+  font-size:16px;
+  cursor:pointer;
+  -webkit-transition: background 1s !important;
+  transition: background 1s !important;
+  margin:5px 0px !important;
+}
+.btn-primary{
+  color:white !important;
+  background:#08a2db !important;
+  border-color:#08a2db !important;
+}
+.btn-primary:hover{
+  color:#08a2db !important;
+  background:white !important;
+  border-color:#08a2db !important;
+}
+.btn-danger{
+  color:#d9534f !important;
+  background:white !important;
+}
+.btn-danger:hover{
+  background:#c9302c !important;
+  border-color:#ac2925 !important;
+  color: white !important;
+}
+#responseH,#loading,#response{
+  display:none;
+}
+#loading{
+  width:600px;
+  margin-top:20px;
+  text-align:center;
+}
+#loading img{
+  width:100px;
+}
+.tab-pane{
+	padding:20px;
+}
