@@ -1,6 +1,6 @@
 # SmartThings Rules Manager
 
-Test and familiarize yourself with our Rules API endpoints.
+Test and familiarize yourself with our Rules API endpoints. See it live on <a href="https://glitch.com/edit/#!/smartthings-rules-manager">Glitch</a>
 
 #### Here are some additional links to help you get started coding right away:
 - Community Forums: <a href="http://community.smartthings.com">http://community.smartthings.com</a>
