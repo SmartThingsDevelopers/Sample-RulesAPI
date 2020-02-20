@@ -1,0 +1,90 @@
+{
+    "name": "If motion between 6PM and 9PM, turn on light",
+    "timeZoneId": "America/New_York",
+    "actions": [
+        {
+            "if": {
+                "and": [
+                    {
+                        "equals": {
+                            "left": {
+                                "device": {
+                                    "devices": [
+                                        "4858b604-10e3-47ea-8432-d6418157bb13"
+                                    ],
+                                    "component": "main",
+                                    "capability": "motionSensor",
+                                    "attribute": "motion"
+                                }
+                            },
+                            "right": {
+                                "string": "active"
+                            }
+                        }
+                    },
+                    {
+                        "between": {
+                            "value": {
+                                "time": {
+                                    "reference": "Now"
+                                }
+                            },
+                            "start": {
+                                "time": {
+                                    "daysOfWeek": [
+                                        "Mon",
+                                        "Tue",
+                                        "Wed",
+                                        "Thu",
+                                        "Fri"
+                                    ],
+                                    "reference": "Midnight",
+                                    "offset": {
+                                        "value": {
+                                            "integer": -360
+                                        },
+                                        "unit": "Minute"
+                                    }
+                                }
+                            },
+                            "end": {
+                                "time": {
+                                    "daysOfWeek": [
+                                        "Mon",
+                                        "Tue",
+                                        "Wed",
+                                        "Thu",
+                                        "Fri"
+                                    ],
+                                    "reference": "Midnight",
+                                    "offset": {
+                                        "value": {
+                                            "integer": -180
+                                        },
+                                        "unit": "Minute"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "then": [
+                    {
+                        "command": {
+                            "devices": [
+                                "f42e284d-fa01-4a09-a55e-adbdda632ac2"
+                            ],
+                            "commands": [
+                                {
+                                    "component": "main",
+                                    "capability": "switch",
+                                    "command": "on"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

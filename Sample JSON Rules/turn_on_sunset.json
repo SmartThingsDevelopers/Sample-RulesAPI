@@ -1,0 +1,30 @@
+{
+    "name": "Turn on a switch at sunset",
+    "actions": [
+        {
+            "every": {
+                "specific": {
+                    "reference": "Sunset",
+                    "offset": {
+                        "value": {
+                            "integer": 0
+                        },
+                        "unit": "Minute"
+                    }
+                },
+                "actions": [
+                    {
+                        "command": {
+                            "devices": ["2da899dc-bfe8-41ca-8e4b-bcc1ebbf86ce"],
+                            "commands": [ {
+                                "component": "main",
+                                "capability": "switch",
+                                "command": "on"
+                            }]
+                        }
+                    }    
+                ]
+            }
+        }    
+    ]
+}

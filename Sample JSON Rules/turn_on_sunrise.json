@@ -1,0 +1,30 @@
+{
+    "name": "Turn on a switch at sunrise",
+    "actions": [
+        {
+            "every": {
+                "specific": {
+                    "reference": "Sunrise",
+                    "offset": {
+                        "value": {
+                            "integer": 0
+                        },
+                        "unit": "Minute"
+                    }
+                },
+                "actions": [
+                    {
+                        "command": {
+                            "devices": ["f42e284d-fa01-4a09-a55e-adbdda632ac2"],
+                            "commands": [ {
+                                "component": "main",
+                                "capability": "switch",
+                                "command": "on"
+                            }]
+                        }
+                    }    
+                ]
+            }
+        }    
+    ]
+}
