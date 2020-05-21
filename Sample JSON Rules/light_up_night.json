@@ -7,7 +7,7 @@
           "right": {
             "device": {
               "devices": [
-                "94c9d9a1-028c-4c3d-a10d-d4ae494e6af1"
+                "{{illuminancesensor1}}"
               ],
               "component": "main",
               "capability": "illuminanceMeasurement",
