@@ -7,7 +7,7 @@
           "right": {
             "device": {
               "devices": [
-                "6369e735-830e-45ec-ad88-95f2e4dfd0ad"
+                "{{ one_light_select }}"
               ],
               "component": "main",
               "capability": "button",
