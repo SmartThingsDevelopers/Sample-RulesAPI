@@ -1,0 +1,79 @@
+{
+    "name": "If the light is turned on between sunrise and 1 hour after sunrise change the light color",
+    "actions": [
+        {
+            "if":{
+                "and":[
+                    {
+                        "between":{
+                            "value": {
+                                "time": {
+                                    "reference": "Now"
+                                }
+                            },
+                            "start": {
+                                "time": {
+                                    "reference": "Sunrise"
+                                }
+                            },
+                            "end": {
+                                "time": {
+                                    "reference": "Sunrise",
+                                    "offset": {
+                                        "value": {"integer":60},
+                                        "unit": "Minute"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "equals": {
+                            "left": {
+                                "device": {
+                                    "devices": [
+                                        "{{ light-deviceId }}"
+                                    ],
+                                    "component": "main",
+                                    "capability": "switch",
+                                    "attribute": "switch"
+                                }
+                            },
+                            "right": {
+                                "string": "on"
+                            }
+                        }
+                    }
+                ], 
+                "then":[
+                    {
+                        "command": {
+                            "devices": [
+                                "{{ light-deviceId }}"
+                            ],
+                            "commands": [
+                                {
+                                    "component": "main",
+                                    "capability": "colorControl",
+                                    "command": "setColor",
+                                    "arguments": [
+                                        {
+                                            "map":{
+                                                "hue": {
+                                                    "decimal": "{{ hue-value }}"
+                                                },
+                                                "saturation": {
+                                                    "decimal": "{{ saturation-value }}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
