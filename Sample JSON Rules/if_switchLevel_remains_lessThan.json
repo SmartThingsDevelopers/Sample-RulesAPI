@@ -1,0 +1,47 @@
+{
+    "name": "If SwitchLevel is less than 25% for 20 seconds in device1, turn off device2",
+    "actions": [
+      {
+        "if": {
+            "remains":{
+                "duration":{
+                    "value": {"integer":20},
+                    "unit": "Second"
+                },
+                "lessThan":{
+                    "left": {
+                        "device": {
+                          "devices": [
+                            "{{ device1-id }}"
+                          ],
+                          "component": "main",
+                          "capability": "switchLevel",
+                          "attribute": "level"
+                        }
+                      },
+                      "right": {
+                        "integer": 25
+                      }
+                }
+            },
+            "then": [
+                {
+                  "command": {
+                      "devices": [
+                          "{{ device2-id }}"
+                      ],
+                      "commands": [
+                          {
+                              "component": "main",
+                              "capability": "switch",
+                              "command": "off",
+                              "arguments": []
+                          }
+                      ]
+                    }
+                }
+              ]
+        }
+      }
+    ]
+  }

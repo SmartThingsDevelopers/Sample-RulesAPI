@@ -1,0 +1,79 @@
+{
+    "name": "If Switch is On between sunrise and 1 hour after it, set specific Color",
+    "actions": [
+        {
+            "if":{
+                "and":[
+                    {
+                        "between":{
+                            "value": {
+                                "time": {
+                                    "reference": "Now"
+                                }
+                            },
+                            "start": {
+                                "time": {
+                                    "reference": "Sunrise"
+                                }
+                            },
+                            "end": {
+                                "time": {
+                                    "reference": "Sunrise",
+                                    "offset": {
+                                        "value": {"integer":1},
+                                        "unit": "Hour"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "equals": {
+                            "left": {
+                                "device": {
+                                    "devices": [
+                                        "{{ switch-id }}"
+                                    ],
+                                    "component": "main",
+                                    "capability": "switch",
+                                    "attribute": "switch"
+                                }
+                            },
+                            "right": {
+                                "string": "on"
+                            }
+                        }
+                    }
+                ], 
+                "then":[
+                    {
+                        "command": {
+                            "devices": [
+                                "{{ switch-id }}"
+                            ],
+                            "commands": [
+                                {
+                                    "component": "main",
+                                    "capability": "colorControl",
+                                    "command": "setColor",
+                                    "arguments": [
+                                        {
+                                            "map":{
+                                                "hue": {
+                                                    "decimal": "{{ hue-value }}"
+                                                },
+                                                "saturation": {
+                                                    "decimal": "{{ saturation-value }}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
