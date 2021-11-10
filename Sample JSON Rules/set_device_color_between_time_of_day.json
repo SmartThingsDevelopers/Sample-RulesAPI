@@ -1,5 +1,5 @@
 {
-    "name": "If the light is turned on between sunrise and 1 hour after sunrise change the light color",
+    "name": "If Switch is On between sunrise and 1 hour after it, set specific Color",
     "actions": [
         {
             "if":{
@@ -20,8 +20,8 @@
                                 "time": {
                                     "reference": "Sunrise",
                                     "offset": {
-                                        "value": {"integer":60},
-                                        "unit": "Minute"
+                                        "value": {"integer":1},
+                                        "unit": "Hour"
                                     }
                                 }
                             }
@@ -32,7 +32,7 @@
                             "left": {
                                 "device": {
                                     "devices": [
-                                        "{{ light-deviceId }}"
+                                        "{{ switch-id }}"
                                     ],
                                     "component": "main",
                                     "capability": "switch",
@@ -49,7 +49,7 @@
                     {
                         "command": {
                             "devices": [
-                                "{{ light-deviceId }}"
+                                "{{ switch-id }}"
                             ],
                             "commands": [
                                 {

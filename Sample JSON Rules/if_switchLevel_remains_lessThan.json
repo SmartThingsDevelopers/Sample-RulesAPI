@@ -1,5 +1,5 @@
 {
-    "name": "If switch level is less than 25% for 20 seconds in d1, turn off d2",
+    "name": "If SwitchLevel is less than 25% for 20 seconds in device1, turn off device2",
     "actions": [
       {
         "if": {
@@ -12,7 +12,7 @@
                     "left": {
                         "device": {
                           "devices": [
-                            "{{ device-id }}"
+                            "{{ device1-id }}"
                           ],
                           "component": "main",
                           "capability": "switchLevel",
@@ -28,7 +28,7 @@
                 {
                   "command": {
                       "devices": [
-                          "{{ device-id }}"
+                          "{{ device2-id }}"
                       ],
                       "commands": [
                           {
