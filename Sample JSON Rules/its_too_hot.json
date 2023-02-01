@@ -3,7 +3,7 @@
   "actions": [
     {
       "if": {
-        "greater_than": {
+        "greaterThan": {
           "right": {
             "device": {
               "devices": [
