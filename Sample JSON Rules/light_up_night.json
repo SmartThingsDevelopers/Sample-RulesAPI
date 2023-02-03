@@ -3,7 +3,7 @@
   "actions": [
     {
       "if": {
-        "less_than": {
+        "lessThan": {
           "right": {
             "device": {
               "devices": [
@@ -17,7 +17,7 @@
           "left": {
             "integer": 30
           }
-        }, 
+        },
         "then": [
           {
             "command": {

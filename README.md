@@ -19,7 +19,7 @@ With this quick overview we will provide you with the basics for creating your f
 
 ## Example with Postman
 
-For this example, we will create an automation that will turn off a light when we change our location mode to `Night` and turn on the light if we set our location mode to `Home` or `Away`. Make sure you have a switch connected to your account or a virtual device created for this test. You will also need to obtain the Device ID for the device you will use in this rule. In this example we will use the [Rules API](https://smartthings.developer.samsung.com/docs/api-ref/st-api.html#tag/rules) to create the automation. 
+For this example, we will create an automation that will turn off a light when we change our location mode to `Night` and turn on the light if we set our location mode to `Home` or `Away`. Make sure you have a switch connected to your account or a virtual device created for this test. You will also need to obtain the Device ID for the device you will use in this rule. In this example we will use the [Rules API](https://smartthings.developer.samsung.com/docs/api-ref/st-api.html#tag/rules) to create the automation.
 
 ### Install Postman
 
@@ -35,9 +35,9 @@ Make sure that you select **Rules > Read all rules**, **Rules > Write all rules*
 
 ### Obtain Device IDs, Location ID and location Mode IDs for use in Rules
 
-- In Postman make a request to the [Devices API](https://smartthings.developer.samsung.com/docs/devices/device-basics.html) to get a list of devices and their IDs. 
+- In Postman make a request to the [Devices API](https://smartthings.developer.samsung.com/docs/devices/device-basics.html) to get a list of devices and their IDs.
 
-- In Postman make a request to the [Location API](https://smartthings.developer.samsung.com/docs/locations/locations-overview.html) to get a list of locations and a Location ID. 
+- In Postman make a request to the [Location API](https://smartthings.developer.samsung.com/docs/locations/locations-overview.html) to get a list of locations and a Location ID.
 
 - In Postman make a request to the [Location API](https://smartthings.developer.samsung.com/docs/locations/locations-overview.html) to get a list of the location Modes.
 
@@ -131,7 +131,7 @@ To execute the Rule you created via the Rules API get it's ID by sending a GET r
 Now that we've created our first Rule let's cover the Rules Grammar and review the types of actions that are available within the API.  
 
 ### Rule Body
-A rule is described in JSON. A single rule can be used to represent complex rules. A rule has a name and a list of actions, which is a tree that is evaluated when the rule is triggered. 
+A rule is described in JSON. A single rule can be used to represent complex rules. A rule has a name and a list of actions, which is a tree that is evaluated when the rule is triggered.
 
 Actions are a core primitive of the Rules API and define what a rule "does". One of the simplest actions is an "if" action. Let's first see an example of an `IfAction` and then we will break it apart.
 
@@ -192,7 +192,7 @@ In this rule we introduce the idea of a `condition`. A condition is evaluated by
 
 ### Example Actions:
 
-`SleepAction` is a type that can be used to introduce a pause between the execution of other actions. One example would be the case where you would like to turn on a light but then have that light turn off automatically after some time has elapsed. 
+`SleepAction` is a type that can be used to introduce a pause between the execution of other actions. One example would be the case where you would like to turn on a light but then have that light turn off automatically after some time has elapsed.
 
 ```json
 {
@@ -259,7 +259,7 @@ In this rule we introduce the idea of a `condition`. A condition is evaluated by
 }
 ```
 
-In this rule we are chaining together a few different actions to complete our goal of turning a light on, pausing for one (1) minute and then turning it off. As you can see we are making use of an `IfAction` to trigger the rule execution when motion events occur for this device. When motion is active, three (3) actions will take place in sequence: 
+In this rule we are chaining together a few different actions to complete our goal of turning a light on, pausing for one (1) minute and then turning it off. As you can see we are making use of an `IfAction` to trigger the rule execution when motion events occur for this device. When motion is active, three (3) actions will take place in sequence:
 1. Send the `on` command to light 1
 2. Sleep for 1 minute
 3. Send the `off` command to light 1
@@ -299,7 +299,7 @@ Rules containing an `EveryAction` can be used to setup automations that execute 
 }
 ```
 
-`EveryAction` also supports a `specific` option as well. In this case we can create a rule where we turn on a light at a given time each day. The `reference` field allows for a number of options: (`Now`, `Sunrise`, `Noon`, `Sunset`, `Midnight`). You can then use the `offset` to fine tune the time to execute at an exact time every day. 
+`EveryAction` also supports a `specific` option as well. In this case we can create a rule where we turn on a light at a given time each day. The `reference` field allows for a number of options: (`Now`, `Sunrise`, `Noon`, `Sunset`, `Midnight`). You can then use the `offset` to fine tune the time to execute at an exact time every day.
 
 ```json
 {
@@ -311,7 +311,7 @@ Rules containing an `EveryAction` can be used to setup automations that execute 
 					"reference": "Noon",
 					"offset": {
 						"value": {
-							"integer": -195	
+							"integer": -195
 						},
 						"unit": "Minute"
 					}
@@ -326,10 +326,10 @@ Rules containing an `EveryAction` can be used to setup automations that execute 
 								"command": "on"
 							}]
 						}
-					}	
+					}
 				]
 			}
-		}	
+		}
 	]
 }
 ```
@@ -342,7 +342,7 @@ Beyond the `EqualsCondition` used earlier, the Rules API supports a number of di
     "actions": [
         {
             "if": {
-                "greater_than": {
+                "greaterThan": {
                     "left": {
                         "integer": 50
                     },
@@ -456,7 +456,7 @@ Rather than check if the level of the light is greater than or less than we can 
 # Rules Glossary
 
 ## Actions:
- 
+
 ### CommandAction
 Send command(s) to device(s).
 
@@ -488,7 +488,7 @@ Checks for equal values. ex: If my Bedroom Switch is on.
             "capability": "switch",
             "attribute": "switch"
         }
-    }, 
+    },
     "right": {
         "string": "on"
     }
@@ -500,7 +500,7 @@ Checks for equal values. ex: If my Bedroom Switch is on.
 Checks if a value is greater than a provided value. ex: If a light's level is larger than a given value.
 
 ```json
-"greater_than": {
+"greaterThan": {
     "left": {
         "integer": 50
     },
@@ -519,7 +519,7 @@ Checks if a value is greater than a provided value. ex: If a light's level is la
 Checks if a value is greater than or equal to a provided value. ex: If a light's level is larger to equal to a given value.
 
 ```json
-"greater_than_or_equals": {
+"greaterThanOrEquals": {
     "left": {
         "integer": 50
     },
@@ -538,7 +538,7 @@ Checks if a value is greater than or equal to a provided value. ex: If a light's
 Checks if a value is less than a provided value. ex: If a light's level is less than a given value.
 
 ```json
-"less_than": {
+"lessThan": {
     "left": {
         "integer": 50
     },
@@ -557,7 +557,7 @@ Checks if a value is less than a provided value. ex: If a light's level is less 
 Checks if a value is less than or equal to a provided value. ex: If a light's level is less than or equal to a given value.
 
 ```json
-"less_than_or_equals": {
+"lessThanOrEquals": {
     "left": {
         "integer": 50
     },
@@ -605,7 +605,7 @@ Allows for the use of the state of a device to act as a condition.
 Allows for the use of the location mode state to act as a condition
 
 ### ArrayOperand
-Allows for evaluation of multiple operands. 
+Allows for evaluation of multiple operands.
 
 -------------
 
